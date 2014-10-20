@@ -31,7 +31,7 @@ games.Pong = (function(Player) {
 	var _draw = function( screen, size ) 
 	{
 		for( var i = 0; i < _that.players.length; i++ ) {
-			_screen.fillRect(_that.players[i].coordinates.x, _that.players[i].coordinates.y, 30, 30);
+			_that.players[i].draw();
 		}
 	};
 
@@ -57,8 +57,8 @@ games.Pong = (function(Player) {
 		};
 
 		this.players = [
-			new Player( _screen, 'Player 1', this.size, { x: 0, y: this.size.y / 2 }),
-			new Player( _screen, 'Player 2', this.size, { x: this.size.x - 30, y: this.size.y / 2 })
+			new Player( _screen, 'Player 1', this.size, { x: 0, y: this.size.y / 2 }, 'rgb(200,0,0)'),
+			new Player( _screen, 'Player 2', this.size, { x: this.size.x - 30, y: this.size.y / 2 }, 'rgba(0, 0, 200, 0.5)')
 		];
 
 		_tick();
@@ -69,7 +69,7 @@ games.Pong = (function(Player) {
 	* Explicitly starts the game.
 	*/
 	Pong.prototype.start = function() {
-		console.log('should be called just once.')
+		// 'should be called just once.'
 	};
 
 	return Pong;
